@@ -1,12 +1,11 @@
 package com.example.autorizationservice.user;
 
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.Size;
+import java.util.Objects;
 
 public class User {
-    private String user;
+    private final String user;
 
-    private String password;
+    private final String password;
 
     public User(String user, String password) {
         this.user = user;
@@ -23,9 +22,6 @@ public class User {
 
     @Override
     public String toString() {
-        return "User{" +
-                "name='" + user + '\'' +
-                ", password='" + password + '\'' +
-                '}';
+        return user;
     }
 }
