@@ -1,27 +1,17 @@
 package com.example.autorizationservice.user;
 
+import com.example.autorizationservice.repository.UserRepository;
+import com.example.autorizationservice.service.AuthorizationService;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
 import java.util.Objects;
 
+
+@Configuration
 public class User {
-    private final String user;
-
-    private final String password;
-
-    public User(String user, String password) {
-        this.user = user;
-        this.password = password;
-    }
-
-    public String getUser() {
-        return user;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    @Override
-    public String toString() {
-        return user;
+    @Bean
+    public AuthorizationService service(UserRepository repository) {
+        return new AuthorizationService(repository);
     }
 }

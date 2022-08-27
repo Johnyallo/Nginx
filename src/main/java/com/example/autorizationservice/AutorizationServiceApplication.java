@@ -7,6 +7,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class AutorizationServiceApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(AutorizationServiceApplication.class, args);
     }
 

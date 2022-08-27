@@ -9,20 +9,15 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Repository
 public class UserRepository {
-    private final Map<User, List<Authorities>> userMap = new HashMap<>();
-    User user1 = new User("admin", "admin");
-
-    public UserRepository() {
-        addUserAuthorities(user1, Arrays.asList(Authorities.READ, Authorities.WRITE, Authorities.DELETE));
-    }
 
     public List<Authorities> getUserAuthorities(String user, String password) {
-        return userMap.get(user1);
+        List<Authorities> authorities = new ArrayList<>();
+        if (user.equals("admin") && password.equals("admin")) {
+            Collections.addAll(authorities, Authorities.READ, Authorities.WRITE, Authorities.DELETE);
+        }
+        return authorities;
     }
 
-    public void addUserAuthorities(User user, List<Authorities> list) {
-        userMap.put(user, list);
-    }
 
 
 
